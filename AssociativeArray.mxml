@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- www.30Sharp.com - by : Mohammad (borna) Pourhossein -->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" horizontalAlign="left" creationComplete="initApp()" viewSourceURL="srcview/index.html">
+	<mx:Script><![CDATA[
+		import mx.collections.ArrayCollection;
+		[Bindable]private var _acLists:ArrayCollection;  
+		private var _oAC:Object = new Object();          
+	  
+	  	/**Run by creationComplete event  */
+		private function initApp():void
+		{
+			var aACNames:Array = new Array();                        
+	      	for(var i:int=1;i < 5; i ++)
+	    	{                            
+	           	var sACName:String = "ArrCol"+i;                       
+	           	_oAC[sACName] = new ArrayCollection([i,"List#:" + i, "other(" + i + ") data"]); 
+	          	aACNames.push(sACName);                                
+	    	}
+	       	_acLists = new ArrayCollection(aACNames);                
+	    }
+	  
+	    /**Run by selecting a name form the list  */
+	    private function showAC(oEvent:Event):void
+	    {
+	    	var sACName:String = String(lstNames.value);            	    
+	    	var acTemp:ArrayCollection = _oAC[sACName];
+	    	lstAC.dataProvider = acTemp;                            
+	    }
+	  
+	]]></mx:Script> 
+	<mx:VBox x="10" y="10">
+		<mx:Label text="Select an ArrayCollection" fontWeight="bold" />
+	    <mx:List id="lstNames" dataProvider="{_acLists}" rowCount="4" height="100" width="150" click="showAC(event)" />    
+	</mx:VBox>
+	<mx:VBox x="170" y="10">
+	    <mx:Label text="ArrayCollection contents" fontWeight="bold" />
+	    <mx:List id="lstAC"  rowCount="4" height="100" width="150" />     
+	</mx:VBox>
+</mx:Application>
+

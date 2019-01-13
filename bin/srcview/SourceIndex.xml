@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of AssociativeArray</title>
+	<nodes>
+		<node selected="true" label="AssociativeArray.mxml" icon="mxmlAppIcon" url="source/AssociativeArray.mxml.html"/>
+	</nodes>
+	<zipfile label="Download source (ZIP, 1K)" url="AssociativeArray.zip"/>
+	<sdklink label="Download Flex 2 SDK" url="http://www.adobe.com/go/flex2_sdk"/>
+</index>
